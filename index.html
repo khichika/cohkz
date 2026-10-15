@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberOps Hub — Ваш надежный IT и ИБ партнер для МСБ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0D47A1',     // Deep Ocean Blue
+                            cyan: '#00E5FF',     // Cyber Cyan
+                            slate: '#ECEFF1',    // Slate Gray
+                            white: '#FFFFFF',    // Pure White
+                            black: '#212121',    // Obsidian Black
+                            darkBlue: '#093170',
+                            lightSlate: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'material-1': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
+                        'material-2': '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+                        'material-3': '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
+                        'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #212121;
+            background-color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .pulse-online {
+            box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+            animation: pulse-cyan 2s infinite;
+        }
+        @keyframes pulse-cyan {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-black antialiased">
+
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-blue/95 backdrop-blur-md text-white shadow-md transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-white text-brand-blue rounded-xl flex items-center justify-between p-1.5 shadow-md group-hover:scale-105 transition-transform">
+                    <!-- SVG Logo Icon (Gear + Globe + Key) -->
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-current text-brand-blue">
+                        <!-- Gear -->
+                        <path d="M50,15 C47.5,15 45.5,16.5 44.7,18.8 L41.2,19.8 C39.5,18.3 37.3,17.4 35,17.4 C32.7,17.4 30.5,18.3 28.8,19.8 L25.3,18.8 C24.5,16.5 22.5,15 20,15 C17.2,15 15,17.2 15,20 C15,22.5 16.5,24.5 18.8,25.3 L19.8,28.8 C18.3,30.5 17.4,32.7 17.4,35 C17.4,37.3 18.3,39.5 19.8,41.2 L18.8,44.7 C16.5,45.5 15,47.5 15,50 C15,52.8 17.2,55 20,55 C22.5,55 24.5,53.5 25.3,51.2 L28.8,50.2 C30.5,51.7 32.7,52.6 35,52.6 C37.3,52.6 39.5,51.7 41.2,50.2 L44.7,51.2 C45.5,53.5 47.5,55 50,55 C52.8,55 55,52.8 55,50 C55,47.5 53.5,45.5 51.2,44.7 L50.2,41.2 C51.7,39.5 52.6,37.3 52.6,35 C52.6,32.7 51.7,30.5 50.2,28.8 L51.2,25.3 C53.5,24.5 55,22.5 55,20 C55,17.2 52.8,15 50,15 Z" fill="#0D47A1" transform="scale(1.4) translate(-10, -10)"/>
+                        <!-- Inner Circle / Globe -->
+                        <circle cx="50" cy="45" r="22" fill="#00E5FF"/>
+                        <circle cx="50" cy="45" r="18" fill="none" stroke="#0D47A1" stroke-width="3"/>
+                        <path d="M32 45 H68 M50 27 V63 M36 34 Q50 40 64 34 M36 56 Q50 50 64 56" fill="none" stroke="#0D47A1" stroke-width="2"/>
+                        <!-- Key Overlay -->
+                        <path d="M50 42 A 8 8 0 0 1 50 58 L 50 82 H 58 V 74 H 50 V 68 H 58 V 62 H 50 Z" fill="#FFFFFF" stroke="#0D47A1" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-xl tracking-tight leading-none text-white">CyberOps<span class="text-brand-cyan">Hub</span></span>
+                    <span class="text-[10px] text-brand-slate uppercase tracking-widest mt-0.5 font-medium">Your Secure Business Partner</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#services" class="hover:text-brand-cyan transition-colors">Услуги</a>
+                <a href="#calculator" class="hover:text-brand-cyan transition-colors">Калькулятор</a>
+                <a href="#advantages" class="hover:text-brand-cyan transition-colors">Преимущества</a>
+                <a href="#pricing" class="hover:text-brand-cyan transition-colors">Тарифы</a>
+                <a href="#faq" class="hover:text-brand-cyan transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Header CTA -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="#audit" class="bg-brand-cyan text-brand-black hover:bg-white transition-all duration-200 font-heading font-semibold px-5 py-2.5 rounded-lg text-sm shadow-md hover:shadow-cyan-glow flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    <span>Бесплатный ИБ-аудит</span>
+                </a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="p-2 rounded-md text-white hover:text-brand-cyan focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile dropdown menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-darkBlue px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" class="block text-white py-2 border-b border-white/10">Услуги</a>
+            <a href="#calculator" class="block text-white py-2 border-b border-white/10">Калькулятор</a>
+            <a href="#advantages" class="block text-white py-2 border-b border-white/10">Преимущества</a>
+            <a href="#pricing" class="block text-white py-2 border-b border-white/10">Тарифы</a>
+            <a href="#faq" class="block text-white py-2 border-b border-white/10">FAQ</a>
+            <a href="#audit" class="block text-center bg-brand-cyan text-brand-black font-semibold py-3 rounded-lg mt-4">Бесплатный ИБ-аудит</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-brand-blue to-brand-darkBlue text-white pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+        <!-- Abstract Tech Background Elements -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-brand-cyan blur-3xl"></div>
+            <div class="absolute top-1/2 -left-24 w-80 h-80 rounded-full bg-blue-400 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-brand-cyan text-xs font-semibold tracking-wide border border-white/10">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan pulse-online"></span>
+                        ИТ-АУТСОРСИНГ + ИБ ДЛЯ МСБ
+                    </div>
+                    
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
+                        Комплексная кибербезопасность и IT-аутсорсинг <span class="text-brand-cyan">для бизнеса</span>
+                    </h1>
+                    
+                    <p class="text-brand-slate text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Защищаем инфраструктуру, предотвращаем утечки данных и обеспечиваем непрерывность работы вашей компании по единой прозрачной подписке.
+                    </p>
+
+                    <!-- Call to action buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#audit" class="w-full sm:w-auto bg-brand-cyan text-brand-black font-heading font-bold px-8 py-4 rounded-xl text-center shadow-lg hover:bg-white hover:shadow-cyan-glow transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Заказать бесплатный аудит</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-heading font-semibold px-8 py-4 rounded-xl text-center backdrop-blur-sm border border-white/20 transition-all duration-200">
+                            Рассчитать стоимость
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="text-2xl font-bold font-heading text-brand-cyan">99.9%</div>
+                            <div class="text-xs text-brand-slate mt-1">Uptime инфраструктуры</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold font-heading text-brand-cyan">&lt; 15 мин</div>
+                            <div class="text-xs text-brand-slate mt-1">Реагирование SOC</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold font-heading text-brand-cyan">100%</div>
+                            <div class="text-xs text-brand-slate mt-1">Соответствие стандартам</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column: Live SOC/IT Status Interactive Widget -->
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-black/80 rounded-2xl p-6 border border-white/10 shadow-material-3 backdrop-blur-md relative">
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-800">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                <span class="ml-2 text-xs font-mono text-gray-400">SOC_MONITOR_v2.4</span>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-green-500/10 text-green-400 text-xs font-mono">
+                                <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-ping"></span>
+                                LIVE MONITORING
+                            </span>
+                        </div>
+
+                        <!-- Simulated Dashboard Cards -->
+                        <div class="space-y-3 font-mono text-xs">
+                            <!-- Status item 1 -->
+                            <div class="bg-gray-900/90 p-3 rounded-lg border border-gray-800 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan"></i>
+                                    <div>
+                                        <div class="text-white font-semibold">Защита периметра (Firewall)</div>
+                                        <div class="text-gray-400 text-[10px]">Атак заблокировано за сутки: 1,420</div>
+                                    </div>
+                                </div>
+                                <span class="text-green-400 font-semibold">АКТИВЕН</span>
+                            </div>
+
+                            <!-- Status item 2 -->
+                            <div class="bg-gray-900/90 p-3 rounded-lg border border-gray-800 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="server" class="w-5 h-5 text-blue-400"></i>
+                                    <div>
+                                        <div class="text-white font-semibold">Серверная инфраструктура</div>
+                                        <div class="text-gray-400 text-[10px]">Бэкап: Успешно (03:00)</div>
+                                    </div>
+                                </div>
+                                <span class="text-green-400 font-semibold">100% OK</span>
+                            </div>
+
+                            <!-- Status item 3 -->
+                            <div class="bg-gray-900/90 p-3 rounded-lg border border-gray-800 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
+                                    <div>
+                                        <div class="text-white font-semibold">Мониторинг утечек данных</div>
+                                        <div class="text-gray-400 text-[10px]">Сканирование DarkWeb: Чисто</div>
+                                    </div>
+                                </div>
+                                <span class="text-green-400 font-semibold">БЕЗОПАСНО</span>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Terminal Console Simulation -->
+                        <div class="mt-4 p-3 bg-black rounded-lg border border-gray-800 font-mono text-[11px] text-gray-300 h-28 overflow-hidden flex flex-col justify-end" id="console-logs">
+                            <div class="text-gray-500">[12:04:11] Init CyberOps Agent...</div>
+                            <div class="text-gray-500">[12:04:12] EDR Protection: Active</div>
+                            <div class="text-brand-cyan">[12:05:30] Threat Scan: 0 anomalies detected</div>
+                            <div class="text-green-400">[12:08:45] System status: FULLY PROTECTED</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM VS SOLUTION SECTION -->
+    <section class="py-20 bg-brand-lightSlate">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-heading font-extrabold text-brand-black sm:text-4xl">
+                    Почему традиционный подход больше не работает?
+                </h2>
+                <p class="mt-4 text-gray-600 text-base sm:text-lg">
+                    Малый и средний бизнес часто становится легкой мишенью для хакеров из-за отсутствия системной защиты и квалифицированных кадров.
+                </p>
+            </div>
+
+            <!-- Comparison Table / Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                
+                <!-- Traditional IT -->
+                <div class="bg-white p-8 rounded-2xl shadow-material-1 border border-red-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-between p-2.5">
+                                <i data-lucide="x-circle" class="w-full h-full"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-gray-900">Традиционный штатный IT-отдел</h3>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-600">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="minus" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+                                <span>Высокая зарплата штатного сисадмина + ИБ-специалиста (от 600,000 ₸/мес).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="minus" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+                                <span>Человеческий фактор: отпуска, болезни, увольнения без передачи дел.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="minus" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+                                <span>Реактивный подход — чинят только тогда, когда всё «упало» или зашифровано.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="minus" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+                                <span>Отсутствие дорогостоящих инструментов мониторинга угроз 24/7.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-100 text-xs text-red-600 font-semibold">
+                        Высок риск простоя и потерь денег
+                    </div>
+                </div>
+
+                <!-- CyberOps Hub Solution -->
+                <div class="bg-gradient-to-br from-brand-blue to-brand-darkBlue p-8 rounded-2xl shadow-material-2 text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                        <i data-lucide="shield" class="w-64 h-64 text-brand-cyan"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-xl bg-brand-cyan text-brand-black flex items-center justify-between p-2.5">
+                                <i data-lucide="check-circle" class="w-full h-full"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-white">CyberOps Hub</h3>
+                        </div>
+                        <ul class="space-y-4 text-sm text-brand-slate">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-cyan shrink-0 mt-0.5"></i>
+                                <span>Целая команда экспертов (DevOps, SOC, SysAdmin) по цене одного специалиста.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-cyan shrink-0 mt-0.5"></i>
+                                <span>Непрерывная работа 24/7/365 по строгому соглашению SLA.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-cyan shrink-0 mt-0.5"></i>
+                                <span>Превентивная защита: предотвращаем инциденты до того, как они навредят бизнесу.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 text-brand-cyan shrink-0 mt-0.5"></i>
+                                <span>Включены лицензионные EDR/SOC решения и резервное копирование в облако.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-white/10 text-xs text-brand-cyan font-semibold">
+                        Прозрачные затраты и гарантированная безопасность
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-blue font-semibold text-sm tracking-widest uppercase">Наши Услуги</span>
+                <h2 class="text-3xl font-heading font-extrabold text-brand-black sm:text-4xl mt-2">
+                    Всё, что нужно для стабильной и безопасной работы
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-brand-slate/40 p-6 rounded-2xl border border-gray-200 hover:shadow-material-2 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-black mb-3">Мониторинг & SOC 24/7</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Круглосуточное выявление атак, реагирование на инциденты, защита от DDoS и защита рабочих станций (EDR).
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-brand-slate/40 p-6 rounded-2xl border border-gray-200 hover:shadow-material-2 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="server" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-black mb-3">IT-Администрирование</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Настройка и поддержка серверов, локальных сетей, облачной инфраструктуры и автоматическое резервное копирование.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-brand-slate/40 p-6 rounded-2xl border border-gray-200 hover:shadow-material-2 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="file-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-black mb-3">Аудит и Комплаенс</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Анализ уязвимостей, тестирование на проникновение (PenTest) и приведение инфраструктуры к международным стандартам.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-brand-slate/40 p-6 rounded-2xl border border-gray-200 hover:shadow-material-2 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-brand-blue text-white rounded-xl flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="user-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-lg text-brand-black mb-3">Защита Сотрудников</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Защита корпоративной почты от спама и фишинга, настройка двухфакторной аутентификации (2FA) и обучающие тесты.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CALCULATOR SECTION -->
+    <section id="calculator" class="py-20 bg-gradient-to-b from-brand-slate to-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-material-2 border border-gray-200">
+                
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-brand-blue font-semibold text-sm tracking-widest uppercase">Онлайн-расчёт</span>
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-black mt-1">
+                        Калькулятор стоимости обслуживания
+                    </h2>
+                    <p class="text-gray-500 text-sm mt-2">Укажите параметры вашей компании для мгновенной оценки стоимости</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Controls Column -->
+                    <div class="lg:col-span-7 space-y-8">
+                        
+                        <!-- Slider 1: Workstations -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-semibold text-sm text-gray-700">Рабочих мест / ПК:</label>
+                                <span id="users-count" class="font-heading font-bold text-brand-blue text-lg">15</span>
+                            </div>
+                            <input type="range" id="users-range" min="5" max="100" value="15" step="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-blue">
+                            <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                <span>5 ПК</span>
+                                <span>50 ПК</span>
+                                <span>100 ПК</span>
+                            </div>
+                        </div>
+
+                        <!-- Slider 2: Servers -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label class="font-semibold text-sm text-gray-700">Серверов (физ. или облачные):</label>
+                                <span id="servers-count" class="font-heading font-bold text-brand-blue text-lg">2</span>
+                            </div>
+                            <input type="range" id="servers-range" min="0" max="20" value="2" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-blue">
+                            <div class="flex justify-between text-xs text-gray-400 mt-1">
+                                <span>0</span>
+                                <span>10</span>
+                                <span>20</span>
+                            </div>
+                        </div>
+
+                        <!-- Option: Security Tier -->
+                        <div>
+                            <label class="block font-semibold text-sm text-gray-700 mb-3">Уровень защиты и ИБ:</label>
+                            <div class="grid grid-cols-3 gap-3">
+                                <button type="button" class="sec-tier-btn p-3 text-xs font-semibold rounded-xl border border-gray-300 text-gray-700 hover:border-brand-blue focus:outline-none transition-all active-tier bg-brand-blue text-white" data-multiplier="1">
+                                    Базовый (IT + AntiVirus)
+                                </button>
+                                <button type="button" class="sec-tier-btn p-3 text-xs font-semibold rounded-xl border border-gray-300 text-gray-700 hover:border-brand-blue focus:outline-none transition-all" data-multiplier="1.3">
+                                    Стандарт (EDR + Backup)
+                                </button>
+                                <button type="button" class="sec-tier-btn p-3 text-xs font-semibold rounded-xl border border-gray-300 text-gray-700 hover:border-brand-blue focus:outline-none transition-all" data-multiplier="1.6">
+                                    Максимум (24/7 SOC)
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Result Box -->
+                    <div class="lg:col-span-5 bg-brand-blue text-white p-6 sm:p-8 rounded-2xl text-center shadow-material-2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="text-xs uppercase tracking-widest text-brand-cyan mb-2">Ориентировочная стоимость</div>
+                            <div class="text-3xl sm:text-4xl font-heading font-extrabold text-white my-4">
+                                <span id="calculated-price">125,000</span> <span class="text-lg font-normal">₸/мес</span>
+                            </div>
+                            <p class="text-xs text-brand-slate leading-relaxed">
+                                Включает неограниченную поддержку, регулярные бэкапы, ИБ-мониторинг и выезд специалиста при необходимости.
+                            </p>
+                        </div>
+
+                        <div class="mt-6">
+                            <a href="#audit" class="block w-full bg-brand-cyan text-brand-black hover:bg-white font-heading font-bold py-3.5 px-4 rounded-xl text-sm transition-all duration-200">
+                                Зафиксировать цену
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-blue font-semibold text-sm tracking-widest uppercase">Готовые Тарифы</span>
+                <h2 class="text-3xl font-heading font-extrabold text-brand-black sm:text-4xl mt-2">
+                    Прозрачные пакетные решения
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Plan 1 -->
+                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-material-1 hover:shadow-material-2 transition-all flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900">Starter</h3>
+                        <p class="text-xs text-gray-500 mt-1">Для небольших офисов до 10 ПК</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold font-heading text-brand-blue">85,000 ₸</span>
+                            <span class="text-gray-400 text-xs">/ месяц</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Обслуживание до 10 рабочих мест</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Поддержка 1 сервера</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Базовая антивирусная защита</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Еженедельный бэкап</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Реакция до 30 минут</li>
+                        </ul>
+                    </div>
+                    <a href="#audit" class="block text-center bg-brand-slate text-brand-blue font-semibold py-3 rounded-xl text-sm hover:bg-brand-blue hover:text-white transition-colors">Выбрать Starter</a>
+                </div>
+
+                <!-- Plan 2 (Popular) -->
+                <div class="bg-gradient-to-b from-brand-blue to-brand-darkBlue text-white rounded-3xl p-8 shadow-material-3 transform md:-translate-y-2 relative flex flex-col justify-between">
+                    <div class="absolute -top-3 right-6 bg-brand-cyan text-brand-black text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                        Популярный
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-white">Business Optima</h3>
+                        <p class="text-xs text-brand-slate mt-1">Для растущего бизнеса до 30 ПК</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold font-heading text-brand-cyan">180,000 ₸</span>
+                            <span class="text-brand-slate text-xs">/ месяц</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-brand-slate mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> До 30 рабочих мест + 3 сервера</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> EDR защита нового поколения</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> Ежедневное резервное копирование</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> Защита почты от фишинга</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-cyan"></i> Выезд инженера в офис</li>
+                        </ul>
+                    </div>
+                    <a href="#audit" class="block text-center bg-brand-cyan text-brand-black font-semibold py-3 rounded-xl text-sm hover:bg-white transition-colors">Выбрать Business</a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-white border border-gray-200 rounded-3xl p-8 shadow-material-1 hover:shadow-material-2 transition-all flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900">Enterprise SOC</h3>
+                        <p class="text-xs text-gray-500 mt-1">Индивидуальная защита и 24/7 SOC</p>
+                        <div class="my-6">
+                            <span class="text-3xl font-extrabold font-heading text-brand-blue">Индивидуально</span>
+                        </div>
+                        <ul class="space-y-3 text-xs text-gray-600 mb-6">
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Без ограничений по устройствам</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Выделенный SOC-аналитик</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Регулярный PenTest (аудит)</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Реагирование за 15 минут</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-green-500"></i> Персональный менеджер</li>
+                        </ul>
+                    </div>
+                    <a href="#audit" class="block text-center bg-brand-slate text-brand-blue font-semibold py-3 rounded-xl text-sm hover:bg-brand-blue hover:text-white transition-colors">Запросить КП</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM / AUDIT SECTION -->
+    <section id="audit" class="py-20 bg-brand-blue text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white text-brand-black rounded-3xl p-8 sm:p-12 shadow-material-3">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-black">
+                        Получите бесплатный ИБ-аудит вашей компании
+                    </h2>
+                    <p class="text-gray-600 text-sm mt-2">
+                        Оставьте заявку, и наши инженеры проведут экспресс-анализ защищенности вашей сети и дадут рекомендации.
+                    </p>
+                </div>
+
+                <form id="audit-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Ваше имя *</label>
+                            <input type="text" required placeholder="Александр" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-blue text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Телефон / WhatsApp *</label>
+                            <input type="tel" required placeholder="+7 (707) 000-00-00" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-blue text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Название компании</label>
+                            <input type="text" placeholder="ТОО 'Бизнес'" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-blue text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-700 mb-1">Количество компьютеров</label>
+                            <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-blue text-sm">
+                                <option>До 10 ПК</option>
+                                <option>10 - 30 ПК</option>
+                                <option>30 - 100 ПК</option>
+                                <option>Более 100 ПК</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Комментарий или задача</label>
+                        <textarea rows="3" placeholder="Расскажите о текущих задачах..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:border-brand-blue text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-brand-cyan text-brand-black hover:bg-brand-blue hover:text-white font-heading font-bold py-4 rounded-xl shadow-md transition-all duration-300 text-base">
+                        Запросить бесплатный аудит
+                    </button>
+                    
+                    <p class="text-[11px] text-gray-400 text-center mt-2">
+                        Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION (ACCORDEON) -->
+    <section id="faq" class="py-20 bg-brand-lightSlate">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-heading font-extrabold text-brand-black">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button class="faq-toggle w-full p-5 text-left font-heading font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                        <span>Как быстро вы можете взять нашу компанию на обслуживание?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-blue transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 border-t border-gray-100">
+                        Экспресс-аудит и подписание договора занимают 1-2 дня. Полный переход под нашу защиту обычно занимает от 3 до 5 рабочих дней без остановки ваших рабочих процессов.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button class="faq-toggle w-full p-5 text-left font-heading font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                        <span>Чем вы лучше штатного сисадмина?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-blue transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 border-t border-gray-100">
+                        Штатный специалист может уйти на больничный или не обладать глубокими знаниями в области кибербезопасности. Мы предоставляем команду узкопрофильных инженеров (ИБ, DevOps, системные архитекторы) 24/7 по цене ниже зарплаты одного сотрудника.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button class="faq-toggle w-full p-5 text-left font-heading font-semibold text-gray-900 flex justify-between items-center focus:outline-none">
+                        <span>Как гарантируется конфиденциальность наших данных?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-blue transform transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden p-5 pt-0 text-sm text-gray-600 border-t border-gray-100">
+                        Перед началом работ мы подписываем юридически обязывающее соглашение о неразглашении (NDA). Все наши сотрудники проходят регулярную проверку благонадежности.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-black text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <!-- Brand col -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-brand-cyan rounded-lg flex items-center justify-center text-brand-blue font-bold">
+                            C
+                        </div>
+                        <span class="font-heading font-extrabold text-xl text-white">CyberOps<span class="text-brand-cyan">Hub</span></span>
+                    </div>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        Комплексный IT-аутсорсинг и кибербезопасность для малого и среднего бизнеса. Защищаем ваши активы и обеспечиваем непрерывность работы.
+                    </p>
+                </div>
+
+                <!-- Links col -->
+                <div>
+                    <h4 class="font-heading font-semibold text-sm text-white mb-4">Навигация</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><a href="#services" class="hover:text-brand-cyan">Услуги</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-cyan">Калькулятор</a></li>
+                        <li><a href="#pricing" class="hover:text-brand-cyan">Тарифы</a></li>
+                        <li><a href="#audit" class="hover:text-brand-cyan">Бесплатный аудит</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts col -->
+                <div>
+                    <h4 class="font-heading font-semibold text-sm text-white mb-4">Контакты</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li>Email: mailcohkz@gmail.com</li>
+                        <li>Тел: +7 (705) 421-25-30</li>
+                        <li>Satbayev University Incubator</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <div>© 2026 CyberOps Hub. Все права защищены.</div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-400">Политика конфиденциальности</a>
+                    <a href="#" class="hover:text-gray-400">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('[data-lucide="chevron-down"]');
+                
+                content.classList.toggle('hidden');
+                if (icon) {
+                    icon.classList.toggle('rotate-180');
+                }
+            });
+        });
+
+        // Interactive Price Calculator Logic
+        const usersRange = document.getElementById('users-range');
+        const serversRange = document.getElementById('servers-range');
+        const usersCount = document.getElementById('users-count');
+        const serversCount = document.getElementById('servers-count');
+        const calculatedPrice = document.getElementById('calculated-price');
+        const secTierBtns = document.querySelectorAll('.sec-tier-btn');
+
+        let currentMultiplier = 1;
+
+        function updatePrice() {
+            if (!usersRange || !serversRange || !calculatedPrice) return;
+            
+            const users = parseInt(usersRange.value);
+            const servers = parseInt(serversRange.value);
+            
+            usersCount.textContent = users;
+            serversCount.textContent = servers;
+
+            // Base formula: 5,000 KZT per PC + 15,000 KZT per Server + 25,000 KZT base fee
+            const baseCost = (users * 4500) + (servers * 15000) + 20000;
+            const total = Math.round(baseCost * currentMultiplier);
+
+            calculatedPrice.textContent = total.toLocaleString('ru-RU');
+        }
+
+        if (usersRange && serversRange) {
+            usersRange.addEventListener('input', updatePrice);
+            serversRange.addEventListener('input', updatePrice);
+        }
+
+        secTierBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                secTierBtns.forEach(b => {
+                    b.classList.remove('bg-brand-blue', 'text-white');
+                    b.classList.add('border-gray-300', 'text-gray-700');
+                });
+                btn.classList.add('bg-brand-blue', 'text-white');
+                btn.classList.remove('border-gray-300', 'text-gray-700');
+                
+                currentMultiplier = parseFloat(btn.getAttribute('data-multiplier'));
+                updatePrice();
+            });
+        });
+
+        // Dynamic Console Log Simulation in Hero
+        const consoleLogs = document.getElementById('console-logs');
+        if (consoleLogs) {
+            const logs = [
+                "[SOC] Ping host 192.168.1.100 - OK",
+                "[FIREWALL] Blocked suspicious request from IP 185.220.x.x",
+                "[EDR] Scanning process memory... Clean",
+                "[BACKUP] Cloud Sync Completed successfully",
+                "[MONITOR] CPU Load: 12% | RAM: 42%"
+            ];
+            let index = 0;
+            setInterval(() => {
+                const logLine = document.createElement('div');
+                logLine.className = 'text-gray-400 text-[10px] mt-1';
+                logLine.textContent = `[${new Date().toLocaleTimeString()}] ${logs[index]}`;
+                consoleLogs.appendChild(logLine);
+                if (consoleLogs.children.length > 5) {
+                    consoleLogs.removeChild(consoleLogs.firstChild);
+                }
+                index = (index + 1) % logs.length;
+            }, 3500);
+        }
+
+        // Form submission alert replacement
+        const auditForm = document.getElementById('audit-form');
+        if (auditForm) {
+            auditForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Спасибо за заявку! Наш инженер свяжется с вами в течение 15 минут для уточнения деталей аудита.');
+                auditForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
